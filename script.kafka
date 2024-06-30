@@ -1,0 +1,12 @@
+PRODUCER keyed-message
+topic: trouble-shooting
+key: mykeyq
+{
+    "Key": "my-key",
+    "Data": "{\"description\":\"test\",\"type\":\"Error\",\"Exception\":\"test\"}",
+    "Topic": "my-topic",
+    "application-name": "api-payments",
+    "squad": "my-clan"
+}
+
+###
