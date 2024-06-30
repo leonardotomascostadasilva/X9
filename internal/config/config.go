@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+	"github.com/segmentio/kafka-go"
 )
 
 type Config struct {
@@ -30,4 +31,17 @@ func init() {
 
 func Get() Config {
 	return config
+}
+
+func ConsumerKafka(topic string, groupId string) *kafka.Reader {
+	config := kafka.ReaderConfig{
+		Brokers:  []string{config.KafkaServer},
+		Topic:    topic,
+		GroupID:  groupId,
+		MaxBytes: 10e6,
+	}
+
+	reader := kafka.NewReader(config)
+
+	return reader
 }
