@@ -8,10 +8,12 @@ import (
 
 	"github.com/leonardotomascostadasilva/X9/consumers"
 	"github.com/leonardotomascostadasilva/X9/internal/config"
+	"github.com/leonardotomascostadasilva/X9/internal/database"
 )
 
 type Server struct {
 	port int
+	db   database.Service
 }
 
 func Init() {
@@ -22,6 +24,7 @@ func Init() {
 
 	NewServer := &Server{
 		port: port,
+		db:   database.GetService(),
 	}
 
 	server := &http.Server{

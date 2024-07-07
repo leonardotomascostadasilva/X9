@@ -11,6 +11,8 @@ import (
 type Config struct {
 	KafkaServer string
 	HttpPort    string
+	DbHost      string
+	DbPort      string
 }
 
 var config Config
@@ -27,6 +29,8 @@ func init() {
 	}
 	config.KafkaServer = os.Getenv("KAFKA_SERVER")
 	config.HttpPort = os.Getenv("HTTP_PORT")
+	config.DbHost = os.Getenv("DB_HOST")
+	config.DbPort = os.Getenv("DB_PORT")
 }
 
 func Get() Config {

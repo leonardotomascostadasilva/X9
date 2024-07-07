@@ -2,11 +2,14 @@ PRODUCER keyed-message
 topic: trouble-shooting
 key: mykeyq
 {
-    "Key": "my-key",
-    "Data": "{\"description\":\"test\",\"type\":\"Error\",\"Exception\":\"test\"}",
-    "Topic": "my-topic",
-    "application-name": "api-payments",
-    "squad": "my-clan"
+    "data": "{\"event\":\"purchase\",\"title\":\"test\",\"description\":\"test2\"",
+    "applicationName": "MyApp",
+    "squad": "test",
+    "descriptionError": "Error no parceiro"
 }
 
 ###
+
+CONSUMER g1
+topic: trouble-shooting
+from: earliest

@@ -1,5 +1,13 @@
 version: '3.8'
 services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_volume:/data/db
+    networks:
+      - broker-kafka
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     networks:
@@ -38,3 +46,5 @@ services:
 networks:
   broker-kafka:
     driver: bridge
+volumes:
+  mongo_volume:
